@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete a User</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Syahid's Simple Express Demo</h1>
+    <h2>Delete a User</h2>
+
+    <div>
+      <table>
+        <tr>
+          <td>No</td>
+          <td>User Name</td>   
+          <td>Login Name</td>
+          <td>E-mail</td>
+          <td>Gender</td>
+          <td>Course</td>
+          <td>Edit?</td>
+        </tr>
+        <% users.forEach((user, index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><a href="/users/userdetails/<%= user._id %>"> <%= user.firstName %> <%= user.lastName %> </a></td>   
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.course %></td>
+            <!-- <td><a href="/users/userdelete/<%= user._id %>?_method=DELETE" method="POST" onclick="return confirm('Are you sure to delete <%= user.firstName %> ?');">Delete</a></td> -->
+            <td>
+              <form action="/users/userdelete/<%= user._id %>?_method=DELETE" method="POST" onclick="return confirm('Are you sure to delete <%= user.firstName %> ?');">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr> 
+        <% }) %>  
+      </table>
+    </div>
+
+    <div> 
+      <h5><a href="/">Home</a></h5>
+      <h5><a href="/users">User</a></h5>
+      <form id="logoutform" action="/auth/logout" method="POST">
+          <!-- Your form fields here -->
+      </form>
+      <h5>
+      <a href="" onclick="document.getElementById('logoutform').submit(); return false;">
+        Logout
+      </a>
+      </h5>
+    </div>
+  </body>
+</html>

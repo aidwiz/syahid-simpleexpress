@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is a test page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Syahid's Simple Express Demo</h1>
+    <h2>Test Code (testcode.ejs)</h2>
+    <div>
+      <h2>how to test session (run one by one)</h2>
+      <p><a href="/test/sessionstart">Start Session</a></p>
+      <p><a href="/test/sessioncheck">Check Session</a></p>
+      <p><a href="/test/sessiondestroy">Destroy Session</a></p>
+      <p><a href="/test/sessioncheck">Check Session (session destroyed = blank page)</a></p>
+    </div>
+    <% if (typeof mySession !== 'undefined' && mySession !== null) {  %>    
+      <p style="color:red"><%= mySession.status %></p>    
+    <% } %> 
+    <div>
+      <a href="/users">User's Landing Page (userlanding.ejs)</a>
+    </div>
+  </body>
+</html>

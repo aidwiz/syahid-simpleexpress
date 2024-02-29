@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit User</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Syahid's Simple Express Demo</h1>
+    <h2>Edit User</h2>
+    <div>
+      <form action="/users/update/<%= user._id %>?_method=patch" method="post">
+        <div>
+          <label for="firstName">First Name :</label>
+          <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>">
+        </div>
+        <div>
+          <label for="lastname">Last Name :</label>
+          <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>""><br>
+        </div>  
+        <div>
+          <label for="username">Login name :</label>
+          <input type="text" name="username" id="username" value="<%= user.username %>" readonly><br>
+        </div>
+        <div>
+          <label for="email">E-Mail :</label>
+          <input type="email" name="email" id="email" value="<%= user.email %>">
+        </div>
+        <div>
+          <p>Gender :</p>
+          <input type="radio" name="gender" id="male" value="male" <%= user.gender === 'male' ? 'checked' : '' %> >
+          <label for="male">Male</label><br>
+          <input type="radio" name="gender" id="female" value="female" <%= user.gender === 'female' ? 'checked' : '' %> >
+          <label for="female">Female</label><br>
+        </div>
+        <div>
+          <label for="course">Course :</label>
+          <select name="course" id="course">
+            <!-- <option value="none" selected disabled hidden>Select an Option</option> -->
+            <option <%= user.course === 'DCD' ? 'selected' : '' %> value="DCD">DCD</option>
+            <option <%= user.course === 'DCS' ? 'selected' : '' %> value="DCS">DCS</option>
+            <option <%= user.course === 'DEC' ? 'selected' : '' %> value="DEC">DEC</option>
+            <option <%= user.course === 'DIA' ? 'selected' : '' %> value="DIA">DIA</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit">Update User Data</button>
+        </div>
+      </form>
+    </div>
+    
+    <div> 
+      <h5><a href="/">Home</a></h5>
+      <h5><a href="/users">User</a></h5>
+      <form id="logoutform" action="/auth/logout" method="POST">
+          <!-- Your form fields here -->
+      </form>
+      <h5>
+      <a href="" onclick="document.getElementById('logoutform').submit(); return false;">
+        Logout
+      </a>
+      </h5>
+    </div>
+  </body>
+</html>

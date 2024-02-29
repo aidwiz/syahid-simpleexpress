@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Landing Page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Syahid's Simple Express Demo</h1>
+    <h2>Welcome!</h2>
+    <div>
+      <a href="/users/allusers">List All Users (userlist.ejs)</a>
+    </div>
+    <div>
+      <a href="/users/delete">Delete a User (userdelete.ejs)</a>
+    </div>
+    <div> 
+      <h5><a href="/">Home</a></h5>
+      <h5><a href="/users">User</a></h5>
+      <form id="logoutform" action="/auth/logout" method="POST">
+          <!-- Your form fields here -->
+      </form>
+      <h5>
+      <a href="" onclick="document.getElementById('logoutform').submit(); return false;">
+        Logout
+      </a>
+      </h5>
+    </div>
+  </body>
+</html>

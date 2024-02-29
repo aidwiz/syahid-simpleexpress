@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Syahid's Simple Express Demo</h1>
+    <h2>Sign In</h2>
+    <form action="/auth/login" method="post">
+        <section>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+        </section>
+        <p></p>
+        <section>
+            <label for="current-password">Password</label>
+            <input id="current-password" name="password" type="password" autocomplete="current-password" required>
+        </section>
+        <p></p>
+        <button type="submit">Sign in</button>
+    </form>
+    <div> 
+      <h5><a href="/">Home</a></h5>
+    </div>
+  </body>
+</html>
