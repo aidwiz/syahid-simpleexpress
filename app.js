@@ -36,7 +36,7 @@ app.use(session({
   genid: function (req) {
     return uuidv4();
   },
-  secret: 'the_secret_key',
+  secret: process.env.SESSION_SECRET_KEY,
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60 * 60 * 1000 }, // 1 hour cookie
